@@ -1,6 +1,6 @@
 # Auto Aerials — React + Vite + TypeScript + Tailwind CSS
 
-Drone photography landing page for car enthusiasts, converted from plain HTML to a modern React stack.
+Drone photography landing page for car enthusiasts, using modern React stack.
 
 ## Tech Stack
 
