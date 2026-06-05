@@ -39,7 +39,7 @@ const shows = [
   },
 ];
 
-export default function Shows() {
+export default function Shows({ onBook }: { onBook: () => void }) {
   const headerRef = useReveal();
   const listRef = useReveal();
   const [hovered, setHovered] = useState<number | null>(null);
@@ -63,12 +63,12 @@ export default function Shows() {
             Near You
           </h2>
         </div>
-        <a
-          href="#book"
-          className="text-silver font-condensed text-[0.85rem] tracking-[0.2em] uppercase no-underline border-b border-steel transition-colors duration-200 hover:text-cream hover:border-silver py-4"
+        <button
+          onClick={onBook}
+          className="text-silver font-condensed text-[0.85rem] tracking-[0.2em] uppercase no-underline border-b border-steel transition-colors duration-200 hover:text-cream hover:border-silver py-4 cursor-pointer bg-transparent border-x-0 border-t-0"
         >
           Request a Show →
-        </a>
+        </button>
       </div>
 
       <div ref={listRef} className="reveal flex flex-col gap-[2px]">
@@ -99,7 +99,8 @@ export default function Shows() {
               {show.location}
             </div>
             <div
-              className={`font-condensed text-[0.7rem] tracking-[0.2em] uppercase px-[14px] py-[6px] border border-amber text-amber whitespace-nowrap transition-all duration-200 hidden sm:block ${
+              onClick={onBook}
+              className={`font-condensed text-[0.7rem] tracking-[0.2em] uppercase px-[14px] py-[6px] border border-amber text-amber whitespace-nowrap transition-all duration-200 hidden sm:block cursor-pointer ${
                 hovered === i ? "bg-amber !text-black" : ""
               }`}
             >

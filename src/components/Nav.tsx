@@ -7,7 +7,7 @@ const links = [
   { href: "#pricing", label: "Pricing" },
 ];
 
-export default function Nav() {
+export default function Nav({ onBook }: { onBook: () => void }) {
   const [open, setOpen] = useState(false);
 
   // Close menu on resize to desktop
@@ -59,12 +59,12 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a
-              href="#book"
-              className="bg-amber text-black no-underline font-condensed font-bold text-[0.85rem] tracking-[0.15em] uppercase px-[22px] py-[10px] transition-colors duration-200 hover:bg-[#ffb830]"
+            <button
+              onClick={onBook}
+              className="bg-amber text-black no-underline font-condensed font-bold text-[0.85rem] tracking-[0.15em] uppercase px-[22px] py-[10px] transition-colors duration-200 hover:bg-[#ffb830] cursor-pointer border-none"
             >
               Book Now
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -140,13 +140,12 @@ export default function Nav() {
             }}
             className="mt-6"
           >
-            <a
-              href="#book"
-              onClick={handleLinkClick}
-              className="inline-block clip-btn bg-amber text-black no-underline font-condensed font-bold text-[0.95rem] tracking-[0.2em] uppercase px-8 py-4 transition-colors duration-200 hover:bg-[#ffb830]"
+            <button
+              onClick={() => { handleLinkClick(); onBook() }}
+              className="inline-block clip-btn bg-amber text-black no-underline font-condensed font-bold text-[0.95rem] tracking-[0.2em] uppercase px-8 py-4 transition-colors duration-200 hover:bg-[#ffb830] cursor-pointer border-none"
             >
               Book Now
-            </a>
+            </button>
           </li>
         </ul>
 
