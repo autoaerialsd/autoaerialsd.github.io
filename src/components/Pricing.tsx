@@ -27,7 +27,11 @@ const plans = [
   },
 ]
 
-export default function Pricing() {
+interface Props {
+  onBook: (pkg: string) => void
+}
+
+export default function Pricing({ onBook }: Props) {
   const ref = useReveal()
 
   return (
@@ -44,7 +48,7 @@ export default function Pricing() {
                 MOST POPULAR
               </div>
             )}
-            <div className="font-condensed text-[0.78rem] tracking-[0.3em] uppercase text-smoke mb-4">{plan.tier}</div>
+            <div className="font-condensed text-[0.78rem] tracking-[0.3em] uppercase text-silver mb-4">{plan.tier}</div>
             <div className="font-bebas text-[3.8rem] leading-none mb-1">
               <sup className="font-barlow text-[1.2rem] font-light align-super">$</sup>{plan.price}
             </div>
@@ -56,10 +60,11 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#book"
-              className={`block text-center px-6 py-[14px] font-condensed text-[0.85rem] tracking-[0.2em] uppercase no-underline font-bold transition-all duration-200 ${plan.btnClass}`}>
+            <button
+              onClick={() => onBook(plan.tier)}
+              className={`block w-full text-center px-6 py-[14px] font-condensed text-[0.85rem] tracking-[0.2em] uppercase font-bold transition-all duration-200 cursor-pointer border-none ${plan.btnClass}`}>
               Book This
-            </a>
+            </button>
           </div>
         ))}
       </div>
