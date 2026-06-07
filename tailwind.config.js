@@ -11,8 +11,8 @@ export default {
         smoke: '#555',
         silver: '#aaa',
         cream: '#f0ede8',
-        amber: '#e8a020',
-        'amber-dim': '#a06c10',
+        amber: '#38bdf8',
+        'amber-dim': '#0ea5e9',
         red: '#c0281a',
       },
       fontFamily: {
