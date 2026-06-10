@@ -8,7 +8,7 @@ const links = [
   { href: "#about", label: "About" },
 ];
 
-export default function Nav({ onBook }: { onBook: () => void }) {
+export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const handleLinkClick = () => setOpen(false);
@@ -33,9 +35,19 @@ export default function Nav({ onBook }: { onBook: () => void }) {
         style={{ background: "rgba(8,8,8,0.92)", backdropFilter: "blur(8px)" }}
       >
         {/* Logo */}
-        <a href="#" className="no-underline z-[101] relative flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0" style={{ border: '1px solid rgba(56,189,248,0.3)' }}>
-            <img src="/images/logo_aasd.jpg" alt="Auto Aerials SD logo" className="w-full h-full object-cover" />
+        <a
+          href="#"
+          className="no-underline z-[101] relative flex items-center gap-2"
+        >
+          <div
+            className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0"
+            style={{ border: "1px solid rgba(56,189,248,0.3)" }}
+          >
+            <img
+              src="/images/logo_aasd.jpg"
+              alt="Auto Aerials SD logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-bebas text-[1.35rem] tracking-[0.12em] text-cream leading-none">
             AUTO<span className="text-[#38bdf8]">AERIALS</span> SD
@@ -79,7 +91,11 @@ export default function Nav({ onBook }: { onBook: () => void }) {
               <span
                 key={i}
                 className="block h-[1.5px] bg-cream rounded-full transition-all duration-300"
-                style={{ width: 26, opacity: open ? 0 : 1, transform: open ? "scaleX(0)" : "none" }}
+                style={{
+                  width: 26,
+                  opacity: open ? 0 : 1,
+                  transform: open ? "scaleX(0)" : "none",
+                }}
               />
             ) : (
               <span
@@ -109,7 +125,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? "translateX(0)" : "translateX(-16px)",
-                transition: `opacity 0.4s ease ${0.1 + i * 0.07}s, transform 0.4s ease ${0.1 + i * 0.07}s`,
+                transition: `opacity 0.4s ease ${
+                  0.1 + i * 0.07
+                }s, transform 0.4s ease ${0.1 + i * 0.07}s`,
               }}
             >
               <a
@@ -126,7 +144,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateX(0)" : "translateX(-16px)",
-              transition: `opacity 0.4s ease ${0.1 + links.length * 0.07}s, transform 0.4s ease ${0.1 + links.length * 0.07}s`,
+              transition: `opacity 0.4s ease ${
+                0.1 + links.length * 0.07
+              }s, transform 0.4s ease ${0.1 + links.length * 0.07}s`,
             }}
           >
             <a
@@ -141,7 +161,10 @@ export default function Nav({ onBook }: { onBook: () => void }) {
 
         <p
           className="absolute bottom-10 left-8 font-condensed text-[0.72rem] tracking-[0.3em] uppercase text-smoke"
-          style={{ opacity: open ? 1 : 0, transition: "opacity 0.4s ease 0.45s" }}
+          style={{
+            opacity: open ? 1 : 0,
+            transition: "opacity 0.4s ease 0.45s",
+          }}
         >
           San Diego · FAA Part 107 Certified
         </p>
