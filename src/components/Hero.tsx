@@ -59,9 +59,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex gap-4 items-center justify-center flex-wrap">
           <a
-            href="https://square.link/u/lX2tnSVO"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#pricing"
             className="no-underline font-condensed font-bold text-[0.88rem] tracking-[0.18em] uppercase px-7 py-[14px] rounded-full transition-all duration-200 hover:-translate-y-0.5"
             style={{ background: "#38bdf8", color: "#080808" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#7dd3fc")}
