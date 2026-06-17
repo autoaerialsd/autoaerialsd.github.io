@@ -3,8 +3,8 @@ import { useReveal } from '../hooks/useReveal'
 const steps = [
   {
     number: '01',
-    title: 'Find Us at a Show',
-    desc: 'We set up at local car shows across San Diego. Check our upcoming shows list and look for the Auto Aerials tent.',
+    title: 'Book Now',
+    desc: 'Pick your package and book directly online. No back-and-forth — just select your slot and confirm.',
   },
   {
     number: '02',

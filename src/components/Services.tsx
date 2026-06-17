@@ -2,16 +2,6 @@ import { useReveal } from '../hooks/useReveal'
 
 const services = [
   {
-    icon: '🏡',
-    title: 'Real Estate',
-    desc: 'Elevated property views, neighborhood context, and listing video that moves homes faster.',
-  },
-  {
-    icon: '🏗️',
-    title: 'Roofing & Construction',
-    desc: 'Safe overhead inspections and progress documentation without putting anyone on a ladder.',
-  },
-  {
     icon: '🏎️',
     title: 'Car Shows & Events',
     desc: 'Cinematic coverage of meets, shows, and events around San Diego.',
@@ -20,6 +10,16 @@ const services = [
     icon: '🔄',
     title: '360° Car Videos',
     desc: 'Signature orbiting aerial videos at car washes and shows — built for the feed.',
+  },
+  {
+    icon: '🎬',
+    title: 'Private Car Shoots',
+    desc: 'One-on-one aerial sessions for your personal build — your location, your time, your shot.',
+  },
+  {
+    icon: '📍',
+    title: 'On-Location Aerial',
+    desc: 'We come to you. Whether it\'s a car wash, meet, or private lot — we fly where your car is.',
   },
 ]
 
