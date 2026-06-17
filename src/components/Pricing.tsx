@@ -4,7 +4,7 @@ const plans = [
   {
     tier: 'Car Show',
     price: '79',
-    squareUrl: 'https://square.link/u/lX2tnSVO',
+    squareUrl: 'https://square.link/u/IX2tnSVO',
     desc: 'Capture your vehicle from a perspective most enthusiasts never experience.',
     features: [
       '12 professionally edited aerial photos',
