@@ -10,9 +10,9 @@ const ENTRY = {
 }
 
 const packages = [
-  { value: 'Essential', label: 'Essential — $79' },
-  { value: 'Signature', label: 'Signature — $149' },
-  { value: 'Elite',     label: 'Elite — $249' },
+  { value: 'Car Show',  label: 'Car Show — $79' },
+  { value: 'Showcase',  label: 'Showcase — $149' },
+  { value: 'Feature',   label: 'Feature — $249' },
 ]
 
 interface Props {

@@ -1,5 +1,7 @@
 import { useReveal } from "../hooks/useReveal";
 
+const YOUTUBE_URL = "https://www.youtube.com/@autoaerials";
+
 const photos = [
   { src: "/images/gallery-1.jpg", label: "1967 Ford Mustang · Pony Club Show",  tag: "AERIAL · HERO SHOT", span: true },
   { src: "/images/gallery-2.jpg", label: "Porsche 911 · Cars & Coffee SD",       tag: "TOP DOWN" },
@@ -25,13 +27,29 @@ export default function Portfolio() {
       style={{ background: '#111111' }}
       id="portfolio"
     >
-      <div
-        className="flex items-center gap-4 font-condensed text-[0.8rem] tracking-[0.4em] uppercase mb-[60px] section-label"
-        style={{ color: '#38bdf8' }}
-      >
-        Gallery
+      {/* Header row */}
+      <div className="flex items-center justify-between gap-4 mb-[60px]">
+        <div
+          className="flex items-center gap-4 font-condensed text-[0.8rem] tracking-[0.4em] uppercase section-label"
+          style={{ color: '#38bdf8' }}
+        >
+          Gallery
+        </div>
+        <a
+          href={YOUTUBE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-underline font-condensed text-[0.8rem] tracking-[0.2em] uppercase flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
+          style={{ color: '#38bdf8' }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+          </svg>
+          View Full Portfolio →
+        </a>
       </div>
 
+      {/* Grid — each cell links to YouTube */}
       <div
         ref={ref}
         className="reveal grid gap-[3px] grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:2fr_1fr_1fr] lg:[grid-template-rows:280px_200px]"
@@ -39,9 +57,12 @@ export default function Portfolio() {
         {photos.map((photo, i) => {
           const { w, h } = placeholderSizes[i];
           return (
-            <div
+            <a
               key={i}
-              className={`group relative overflow-hidden cursor-pointer ${photo.span ? "sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}
+              href={YOUTUBE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative overflow-hidden cursor-pointer block no-underline ${photo.span ? "sm:col-span-2 lg:col-span-1 lg:row-span-2" : ""}`}
               style={{ background: '#161616' }}
             >
               <img
@@ -85,7 +106,16 @@ export default function Portfolio() {
               >
                 {photo.label}
               </div>
-            </div>
+
+              {/* YouTube play indicator on hover */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(56,189,248,0.85)' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#080808">
+                    <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
           );
         })}
       </div>
