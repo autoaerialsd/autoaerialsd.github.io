@@ -1,37 +1,43 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+
+      {/* Background video — swap src to the Ferrari aerial video when available */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/images/ferrari-aerial.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        // Fallback: if video fails to load, the poster image shows instead
+        poster="/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg"
+        onError={(e) => {
+          // Hide broken video element and show the poster as a bg instead
+          const el = e.currentTarget as HTMLVideoElement
+          el.style.display = 'none'
+          const parent = el.parentElement
+          if (parent) {
+            parent.style.backgroundImage = `url('/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg')`
+            parent.style.backgroundSize = 'cover'
+            parent.style.backgroundPosition = 'center'
+          }
+        }}
+      />
+
+      {/* Dark overlay so text/buttons stay readable over any media */}
       <div
         className="absolute inset-0"
         style={{
-          background: `radial-gradient(ellipse at 50% 40%, rgba(56,189,248,0.07) 0%, transparent 65%),
-            linear-gradient(160deg, #0d0d0d 0%, #080808 100%)`,
+          background: 'linear-gradient(to bottom, rgba(8,8,8,0.35) 0%, rgba(8,8,8,0.55) 60%, rgba(8,8,8,0.75) 100%)',
         }}
       />
 
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `repeating-linear-gradient(0deg, #fff, #fff 1px, transparent 1px, transparent 60px),
-            repeating-linear-gradient(90deg, #fff, #fff 1px, transparent 1px, transparent 60px)`,
-        }}
-      />
+      {/* Centered content */}
+      <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center anim-slideUp">
 
-      {/* Gradient overlay bottom */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 50%, rgba(8,8,8,0.6) 85%, #080808 100%)",
-        }}
-      />
-
-      {/* Content — centered */}
-      <div className="relative z-10 px-6 sm:px-10 lg:px-16 pt-32 pb-20 text-center max-w-[860px] mx-auto anim-slideUp">
-        {/* Eyebrow line */}
-        <div className="flex items-center justify-center gap-3 mb-6">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3">
           <div className="w-8 h-px bg-silver opacity-60" />
           <span className="font-condensed text-[0.7rem] tracking-[0.35em] uppercase text-silver">
             San Diego, CA · FAA Part 107 Certified
@@ -41,45 +47,35 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-bebas leading-[0.92] tracking-[0.02em] mb-6 uppercase"
-          style={{ fontSize: "clamp(3.8rem, 10vw, 8.5rem)" }}
+          className="font-bebas leading-[0.92] tracking-[0.02em] uppercase"
+          style={{ fontSize: 'clamp(3.8rem, 10vw, 8.5rem)' }}
         >
           Aerial Shots<br />
-          That{" "}
-          <span style={{ color: "#38bdf8" }}>Hit Different</span>
+          That <span style={{ color: '#38bdf8' }}>Hit Different</span>
         </h1>
-
-        {/* Body */}
-        <p className="text-[1.05rem] leading-[1.8] text-silver max-w-[500px] mx-auto mb-10">
-          Professional drone photography &amp; video for real estate,
-          construction, and the San Diego car scene. Licensed, insured, and
-          ready to fly.
-        </p>
 
         {/* CTAs */}
         <div className="flex gap-4 items-center justify-center flex-wrap">
           <a
             href="#pricing"
-            className="no-underline font-condensed font-bold text-[0.88rem] tracking-[0.18em] uppercase px-7 py-[14px] rounded-full transition-all duration-200 hover:-translate-y-0.5"
-            style={{ background: "#38bdf8", color: "#080808" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#7dd3fc")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background = "#38bdf8")}
+            className="no-underline font-condensed font-bold text-[0.95rem] tracking-[0.18em] uppercase px-8 py-[15px] rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            style={{ background: '#38bdf8', color: '#080808' }}
           >
             Book Now
           </a>
           <a
             href="#portfolio"
-            className="no-underline font-condensed font-bold text-[0.88rem] tracking-[0.18em] uppercase px-7 py-[13px] rounded-full border border-silver text-silver transition-all duration-200 hover:border-cream hover:text-cream hover:-translate-y-0.5"
+            className="no-underline font-condensed font-bold text-[0.95rem] tracking-[0.18em] uppercase px-8 py-[14px] rounded-full border-2 border-white text-white transition-all duration-200 hover:bg-white hover:text-black hover:-translate-y-0.5"
           >
             View Portfolio
           </a>
         </div>
+      </div>
 
-        {/* Scroll hint */}
-        <div className="mt-16 flex flex-col items-center gap-2 opacity-40">
-          <div className="w-px h-10 bg-silver" />
-          <span className="font-condensed text-[0.65rem] tracking-[0.3em] uppercase text-silver">Scroll</span>
-        </div>
+      {/* Scroll hint */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+        <div className="w-px h-10 bg-silver" />
+        <span className="font-condensed text-[0.65rem] tracking-[0.3em] uppercase text-silver">Scroll</span>
       </div>
     </section>
   )

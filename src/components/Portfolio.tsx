@@ -3,11 +3,32 @@ import { useReveal } from "../hooks/useReveal";
 const YOUTUBE_URL = "https://www.youtube.com/@autoaerials";
 
 const photos = [
-  { src: "/images/gallery-1.jpg", label: "1967 Ford Mustang · Pony Club Show",  tag: "AERIAL · HERO SHOT", span: true },
-  { src: "/images/gallery-2.jpg", label: "Porsche 911 · Cars & Coffee SD",       tag: "TOP DOWN" },
-  { src: "/images/gallery-3.jpg", label: "Ferrari 488 · Miramar Show",           tag: "45° ANGLE" },
-  { src: "/images/gallery-4.jpg", label: "Lamborghini Huracán · Private",        tag: "ORBIT SHOT" },
-  { src: "/images/gallery-5.jpg", label: "Dodge Challenger · Sunset Session",    tag: "DUSK SHOOT" },
+  {
+    src: "/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg",
+    label: "Ferrari · Golden Hour Aerial",
+    tag: "HERO SHOT",
+    span: true,
+  },
+  {
+    src: "/images/dji_fly_20260614_092234_0380_1781455589509_photo_beautify.JPG",
+    label: "Aerial · Cars & Coffee SD",
+    tag: "TOP DOWN",
+  },
+  {
+    src: "/images/dji_fly_20260605_124350_0163_1780689226947_photo_beautify.JPG",
+    label: "Aerial · San Diego Show",
+    tag: "45° ANGLE",
+  },
+  {
+    src: "/images/dji_fly_20260614_091648_0377_1781455556355_photo_beautify.JPG",
+    label: "Aerial · Morning Shoot",
+    tag: "ORBIT SHOT",
+  },
+  {
+    src: "/images/dji_fly_20260610_193156_0305_1781146421047_photo_beautify.JPG",
+    label: "Aerial · Dusk Session",
+    tag: "DUSK SHOOT",
+  },
 ];
 
 const placeholderSizes = [
