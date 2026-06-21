@@ -66,51 +66,42 @@ export default function About() {
             </ul>
           </div>
 
-          {/* Right — visual panel */}
+          {/* Right — photo panel */}
           <div
-            className="relative flex items-center justify-center min-h-[280px] lg:min-h-0"
-            style={{
-              background: 'rgba(56,189,248,0.03)',
-              borderLeft: '1px solid rgba(255,255,255,0.06)',
-            }}
+            className="relative min-h-[300px] lg:min-h-0 overflow-hidden"
+            style={{ borderLeft: '1px solid rgba(255,255,255,0.06)' }}
           >
-            {/* Grid pattern overlay */}
-            <div
-              className="absolute inset-0 opacity-[0.04]"
-              style={{
-                backgroundImage: `repeating-linear-gradient(0deg, #38bdf8, #38bdf8 1px, transparent 1px, transparent 40px),
-                  repeating-linear-gradient(90deg, #38bdf8, #38bdf8 1px, transparent 1px, transparent 40px)`,
-              }}
+            <img
+              src="/images/dji_fly_20260614_082138_0358_1781579867029_photo.JPG"
+              alt="Auto Aerials SD drone shoot"
+              className="w-full h-full object-cover"
+              style={{ minHeight: '300px' }}
             />
 
-            {/* Drone icon */}
-            <div className="relative flex flex-col items-center gap-4">
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center"
-                style={{ background: 'rgba(56,189,248,0.1)', border: '1px solid rgba(56,189,248,0.2)' }}
-              >
-                <svg
-                  width="38" height="38" viewBox="0 0 24 24" fill="none"
-                  stroke="rgba(56,189,248,0.7)" strokeWidth="1.2"
-                  strokeLinecap="round" strokeLinejoin="round"
-                >
-                  <path d="M2 9h2l1-2h2M22 9h-2l-1-2h-2M9 7h6M12 7v2M8 9a4 4 0 1 0 8 0" />
-                  <circle cx="7" cy="18" r="1.5" />
-                  <circle cx="17" cy="18" r="1.5" />
-                  <line x1="2" y1="9" x2="22" y2="9" />
-                  <rect x="9" y="11" width="6" height="4" rx="1" />
-                </svg>
-              </div>
-              <div className="font-condensed text-[0.72rem] tracking-[0.3em] uppercase text-center" style={{ color: 'rgba(56,189,248,0.5)' }}>
-                San Diego, CA<br />FAA Part 107 Certified
-              </div>
-            </div>
+            {/* Subtle dark overlay */}
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(135deg, rgba(8,8,8,0.3) 0%, rgba(8,8,8,0.1) 100%)' }}
+            />
 
             {/* Corner accents */}
-            <div className="absolute top-4 right-4 w-6 h-[1px]" style={{ background: 'rgba(56,189,248,0.4)' }} />
-            <div className="absolute top-4 right-4 w-[1px] h-6" style={{ background: 'rgba(56,189,248,0.4)' }} />
-            <div className="absolute bottom-4 left-4 w-6 h-[1px]" style={{ background: 'rgba(56,189,248,0.4)' }} />
-            <div className="absolute bottom-4 left-4 w-[1px] h-6" style={{ background: 'rgba(56,189,248,0.4)' }} />
+            <div className="absolute top-4 right-4 w-6 h-[1px]" style={{ background: 'rgba(56,189,248,0.6)' }} />
+            <div className="absolute top-4 right-4 w-[1px] h-6" style={{ background: 'rgba(56,189,248,0.6)' }} />
+            <div className="absolute bottom-4 left-4 w-6 h-[1px]" style={{ background: 'rgba(56,189,248,0.6)' }} />
+            <div className="absolute bottom-4 left-4 w-[1px] h-6" style={{ background: 'rgba(56,189,248,0.6)' }} />
+
+            {/* Badge */}
+            <div
+              className="absolute bottom-5 right-5 font-condensed text-[0.65rem] tracking-[0.25em] uppercase px-3 py-1 rounded"
+              style={{
+                background: 'rgba(8,8,8,0.7)',
+                border: '1px solid rgba(56,189,248,0.3)',
+                color: 'rgba(56,189,248,0.8)',
+                backdropFilter: 'blur(4px)',
+              }}
+            >
+              San Diego · FAA Part 107
+            </div>
           </div>
         </div>
       </div>
