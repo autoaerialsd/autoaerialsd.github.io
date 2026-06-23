@@ -72,7 +72,7 @@ export default function About() {
             style={{ borderLeft: '1px solid rgba(255,255,255,0.06)' }}
           >
             <img
-              src="/images/dji_fly_20260614_082138_0358_1781579867029_photo.JPG"
+              src="/optimized/dji_fly_20260614_082138_0358_1781579867029_photo.webp"
               alt="Auto Aerials SD drone shoot"
               className="w-full h-full object-cover"
               style={{ minHeight: '300px' }}

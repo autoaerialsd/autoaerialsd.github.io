@@ -95,7 +95,7 @@ export default function LoadingScreen({ onDone }: { onDone: () => void }) {
             }}
           >
             <img
-              src="/images/logo_aasd.jpg"
+            src="/optimized/logo_aasd.webp"
               alt="Auto Aerials SD"
               className="w-full h-full object-cover"
             />

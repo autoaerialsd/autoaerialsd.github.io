@@ -35,19 +35,9 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
         style={{ background: "rgba(8,8,8,0.92)", backdropFilter: "blur(8px)" }}
       >
         {/* Logo */}
-        <a
-          href="#"
-          className="no-underline z-[101] relative flex items-center gap-2"
-        >
-          <div
-            className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0"
-            style={{ border: "1px solid rgba(56,189,248,0.3)" }}
-          >
-            <img
-              src="/images/logo_aasd.jpg"
-              alt="Auto Aerials SD logo"
-              className="w-full h-full object-cover"
-            />
+        <a href="#" className="no-underline z-[101] relative flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0" style={{ border: '1px solid rgba(56,189,248,0.3)' }}>
+            <img src="/optimized/logo_aasd.webp" alt="Auto Aerials SD logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-bebas text-[1.35rem] tracking-[0.12em] text-cream leading-none">
             AUTO<span className="text-[#38bdf8]">AERIALS</span> SD

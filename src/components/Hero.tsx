@@ -2,27 +2,15 @@ export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
 
-      {/* Background video — swap src to the Ferrari aerial video when available */}
+      {/* Background video — Ferrari aerial, June 10 golden hour */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/images/ferrari-aerial.mp4"
+        src="/images/ferrari-hero.mp4"
         autoPlay
         muted
         loop
         playsInline
-        // Fallback: if video fails to load, the poster image shows instead
-        poster="/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg"
-        onError={(e) => {
-          // Hide broken video element and show the poster as a bg instead
-          const el = e.currentTarget as HTMLVideoElement
-          el.style.display = 'none'
-          const parent = el.parentElement
-          if (parent) {
-            parent.style.backgroundImage = `url('/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg')`
-            parent.style.backgroundSize = 'cover'
-            parent.style.backgroundPosition = 'center'
-          }
-        }}
+        poster="/optimized/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.webp"
       />
 
       {/* Dark overlay so text/buttons stay readable over any media */}

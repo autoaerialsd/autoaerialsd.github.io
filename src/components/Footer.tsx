@@ -51,7 +51,7 @@ export default function Footer({ onBook: _onBook }: { onBook: () => void }) {
           {/* Logo */}
           <a href="#" className="no-underline inline-flex items-center gap-2">
             <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0" style={{ border: '1px solid rgba(56,189,248,0.3)' }}>
-              <img src="/images/logo_aasd.jpg" alt="Auto Aerials SD logo" className="w-full h-full object-cover" />
+              <img src="/optimized/logo_aasd.webp" alt="Auto Aerials SD logo" className="w-full h-full object-cover" />
             </div>
             <span className="font-bebas text-[1.4rem] tracking-[0.12em] text-cream leading-none">
               AUTO<span style={{ color: '#38bdf8' }}>AERIALS</span> SD

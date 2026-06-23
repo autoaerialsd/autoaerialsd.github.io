@@ -4,28 +4,28 @@ const YOUTUBE_URL = "https://www.youtube.com/@autoaerials";
 
 const photos = [
   {
-    src: "/images/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.jpg",
+    src: "/optimized/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.webp",
     label: "Ferrari · Golden Hour Aerial",
     tag: "HERO SHOT",
     span: true,
   },
   {
-    src: "/images/dji_fly_20260614_092234_0380_1781455589509_photo_beautify.JPG",
+    src: "/optimized/dji_fly_20260614_092234_0380_1781455589509_photo_beautify.webp",
     label: "Aerial · Cars & Coffee SD",
     tag: "TOP DOWN",
   },
   {
-    src: "/images/dji_fly_20260605_124350_0163_1780689226947_photo_beautify.JPG",
+    src: "/optimized/dji_fly_20260605_124350_0163_1780689226947_photo_beautify.webp",
     label: "Aerial · San Diego Show",
     tag: "45° ANGLE",
   },
   {
-    src: "/images/dji_fly_20260614_091648_0377_1781455556355_photo_beautify.JPG",
+    src: "/optimized/dji_fly_20260614_091648_0377_1781455556355_photo_beautify.webp",
     label: "Aerial · Morning Shoot",
     tag: "ORBIT SHOT",
   },
   {
-    src: "/images/dji_fly_20260610_193156_0305_1781146421047_photo_beautify.JPG",
+    src: "/optimized/dji_fly_20260610_193156_0305_1781146421047_photo_beautify.webp",
     label: "Aerial · Dusk Session",
     tag: "DUSK SHOOT",
   },
