@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#how", label: "How It Works" },
-  { href: "#portfolio", label: "Gallery" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#about", label: "About" },
+  { id: "services", label: "Services" },
+  { id: "how", label: "How It Works" },
+  { id: "portfolio", label: "Gallery" },
+  { id: "pricing", label: "Pricing" },
+  { id: "about", label: "About" },
 ];
 
 export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
@@ -26,47 +27,52 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
     };
   }, [open]);
 
-  const handleLinkClick = () => setOpen(false);
-
   return (
     <>
       <nav
         className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center px-5 md:px-10 py-4"
         style={{ background: "rgba(8,8,8,0.92)", backdropFilter: "blur(8px)" }}
       >
-        {/* Logo */}
-        <a href="#" className="no-underline z-[101] relative flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0" style={{ border: '1px solid rgba(56,189,248,0.3)' }}>
-            <img src="/optimized/logo_aasd.webp" alt="Auto Aerials SD logo" className="w-full h-full object-cover" />
+        <Link
+          to="/"
+          className="no-underline z-[101] relative flex items-center gap-2"
+        >
+          <div
+            className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0"
+            style={{ border: "1px solid rgba(56,189,248,0.3)" }}
+          >
+            <img
+              src="/optimized/logo_aasd.webp"
+              alt="Auto Aerials SD logo"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-bebas text-[1.35rem] tracking-[0.12em] text-cream leading-none">
-            AUTO<span className="text-[#38bdf8]">AERIALS</span> SD
+            AUTO<span className="text-amber">AERIALS</span> SD
           </span>
-        </a>
+        </Link>
 
-        {/* Desktop — just the Contact button */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex gap-8 list-none">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-silver no-underline font-condensed text-[0.8rem] tracking-[0.18em] uppercase transition-colors duration-200 hover:text-[#38bdf8]"
+              <li key={l.id}>
+                <Link
+                  to={`/${l.id}`}
+                  className="text-silver no-underline font-condensed text-[0.8rem] tracking-[0.18em] uppercase transition-colors duration-200 hover:text-amber"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            className="no-underline bg-[#38bdf8] text-black font-condensed font-bold text-[0.82rem] tracking-[0.18em] uppercase px-5 py-[9px] rounded-full transition-all duration-200 hover:bg-[#7dd3fc] hover:-translate-y-0.5"
+          <Link
+            to="/contact"
+            className="no-underline bg-amber text-black font-condensed font-bold text-[0.82rem] tracking-[0.18em] uppercase px-5 py-[9px] rounded-full transition-all duration-200 hover:bg-amber-dim hover:-translate-y-0.5"
           >
             Contact
-          </a>
+          </Link>
         </div>
 
-        {/* Hamburger — mobile only */}
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
@@ -98,11 +104,9 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
         </button>
       </nav>
 
-      {/* Mobile overlay */}
       <div
-        className="fixed inset-0 z-[99] md:hidden flex flex-col justify-center items-start px-8 transition-all duration-500"
+        className="fixed inset-0 z-[99] md:hidden flex flex-col justify-center items-start px-8 transition-all duration-500 bg-black"
         style={{
-          background: "#080808",
           opacity: open ? 1 : 0,
           pointerEvents: open ? "auto" : "none",
           transform: open ? "translateY(0)" : "translateY(-12px)",
@@ -111,7 +115,7 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
         <ul className="list-none flex flex-col gap-2 w-full">
           {links.map((l, i) => (
             <li
-              key={l.href}
+              key={l.id}
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? "translateX(0)" : "translateX(-16px)",
@@ -120,13 +124,13 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
                 }s, transform 0.4s ease ${0.1 + i * 0.07}s`,
               }}
             >
-              <a
-                href={l.href}
-                onClick={handleLinkClick}
-                className="font-bebas text-[3rem] tracking-[0.06em] text-cream no-underline leading-none block py-3 border-b border-steel transition-colors duration-200 hover:text-[#38bdf8]"
+              <Link
+                to={`/${l.id}`}
+                onClick={() => setOpen(false)}
+                className="font-bebas text-[3rem] tracking-[0.06em] text-cream no-underline leading-none block py-3 border-b border-steel transition-colors duration-200 hover:text-amber"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li
@@ -139,13 +143,13 @@ export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
               }s, transform 0.4s ease ${0.1 + links.length * 0.07}s`,
             }}
           >
-            <a
-              href="#contact"
-              onClick={handleLinkClick}
-              className="inline-block no-underline bg-[#38bdf8] text-black font-condensed font-bold text-[0.95rem] tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-200 hover:bg-[#7dd3fc]"
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="inline-block no-underline bg-amber text-black font-condensed font-bold text-[0.95rem] tracking-[0.2em] uppercase px-8 py-4 rounded-full transition-colors duration-200 hover:bg-amber-dim"
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
