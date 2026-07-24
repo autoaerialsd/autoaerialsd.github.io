@@ -8,7 +8,7 @@ const links = [
   { href: "#about", label: "About" },
 ];
 
-export default function Nav({ onBook }: { onBook: () => void }) {
+export default function Nav({ onBook: _onBook }: { onBook: () => void }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   const handleLinkClick = () => setOpen(false);
@@ -79,7 +81,11 @@ export default function Nav({ onBook }: { onBook: () => void }) {
               <span
                 key={i}
                 className="block h-[1.5px] bg-cream rounded-full transition-all duration-300"
-                style={{ width: 26, opacity: open ? 0 : 1, transform: open ? "scaleX(0)" : "none" }}
+                style={{
+                  width: 26,
+                  opacity: open ? 0 : 1,
+                  transform: open ? "scaleX(0)" : "none",
+                }}
               />
             ) : (
               <span
@@ -109,7 +115,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
               style={{
                 opacity: open ? 1 : 0,
                 transform: open ? "translateX(0)" : "translateX(-16px)",
-                transition: `opacity 0.4s ease ${0.1 + i * 0.07}s, transform 0.4s ease ${0.1 + i * 0.07}s`,
+                transition: `opacity 0.4s ease ${
+                  0.1 + i * 0.07
+                }s, transform 0.4s ease ${0.1 + i * 0.07}s`,
               }}
             >
               <a
@@ -126,7 +134,9 @@ export default function Nav({ onBook }: { onBook: () => void }) {
             style={{
               opacity: open ? 1 : 0,
               transform: open ? "translateX(0)" : "translateX(-16px)",
-              transition: `opacity 0.4s ease ${0.1 + links.length * 0.07}s, transform 0.4s ease ${0.1 + links.length * 0.07}s`,
+              transition: `opacity 0.4s ease ${
+                0.1 + links.length * 0.07
+              }s, transform 0.4s ease ${0.1 + links.length * 0.07}s`,
             }}
           >
             <a
@@ -141,7 +151,10 @@ export default function Nav({ onBook }: { onBook: () => void }) {
 
         <p
           className="absolute bottom-10 left-8 font-condensed text-[0.72rem] tracking-[0.3em] uppercase text-smoke"
-          style={{ opacity: open ? 1 : 0, transition: "opacity 0.4s ease 0.45s" }}
+          style={{
+            opacity: open ? 1 : 0,
+            transition: "opacity 0.4s ease 0.45s",
+          }}
         >
           San Diego · FAA Part 107 Certified
         </p>
