@@ -3,15 +3,17 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
 
       {/* Background video — Ferrari aerial, June 10 golden hour */}
+      {/* playsInline + muted required for iOS Safari autoplay */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/images/ferrari-hero.mp4"
         autoPlay
         muted
         loop
         playsInline
         poster="/optimized/dji_fly_20260610_193254_0325_1781146282760_photo_beautify.webp"
-      />
+      >
+        <source src="/images/ferrari-hero.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark overlay so text/buttons stay readable over any media */}
       <div
